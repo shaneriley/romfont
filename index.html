@@ -3,20 +3,38 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="module" src="/src/ibm-font-vga-8x8.js"></script>
+    <script type="module" src="/src/all.js"></script>
     <title>IBM PC VGA font spritemaps</title>
     <style>
       body {
         background: #000;
+      }
+      main > * {
+        display: block;
+        margin-bottom: 1.2rem;
       }
     </style>
   </head>
 
   <body>
     <main>
-      <ibm-font-vga-8x8 text="Hi there. This is the actual text that will appear!">
-        <p>Hello world</p>
-      </ibm-font-vga-8x8>
     </main>
+    <script type="module">
+      import * as fontClasses from './src/rom-font.js';
+
+      const mainEl = document.querySelector('main');
+      Object.keys(fontClasses).forEach((className) => {
+        const elementName = className
+          .replace(/^ROMFont_/, '')
+          .replace(/_/g, '*')
+          .replace(/-{1,}/g, '*')
+          .split('*')
+          .join('-')
+          .toLowerCase();
+        const el = document.createElement(`romfont-${elementName}`);
+        el.text = `${className} <romfont-${elementName}>`;
+        mainEl.appendChild(el);
+      });
+    </script>
   </body>
 </html>

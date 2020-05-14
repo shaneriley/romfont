@@ -1,13 +1,13 @@
 import { html, fixture, expect } from '@open-wc/testing';
-import '../src/ibm-font-vga-8x8';
+import '../src/romfont-ibm-vga-8x8';
 
 const component = (text) => (
-  html`<ibm-font-vga-8x8 text=${text}>
+  html`<romfont-ibm-vga-8x8 text=${text}>
     <p>${text}</p>
-  </ibm-font-vga-8x8>`
+  </romfont-ibm-vga-8x8>`
 );
 
-describe('<ibm-font-vga-8x8>', () => {
+describe('<romfont-ibm-vga-8x8>', () => {
   it('renders the slot contents hidden', async () => {
     const text = 'Hello world';
     const el = await fixture(component(text));
