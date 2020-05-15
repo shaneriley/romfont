@@ -2,6 +2,12 @@
   "name": "romfont",
   "version": "1.0.0",
   "description": "ROM font WebComponents",
+  "keywords": [
+    "lit-element",
+    "web component",
+    "raster",
+    "font"
+  ],
   "main": "index.js",
   "module": "index.js",
   "author": "Shane Riley",
