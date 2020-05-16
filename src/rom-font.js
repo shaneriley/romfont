@@ -16,9 +16,14 @@ class ROMFont extends LitElement {
   }
 
   get textToFont() {
-    return this.text.split('').map((char) => {
-      const printed_char = entities[char] ? unsafeHTML(entities[char]) : char;
-      return html`<span class="c${char.charCodeAt(0)}">${printed_char}</span>`;
+    const spaceCharacter = html`<span class="c32">${unsafeHTML(entities[' '])}</span>`;
+    const wordCount = this.text.split(' ').length;
+    return this.text.split(' ').map((word, i) => {
+      const wrappedLetters = word.split('').map((char) => {
+        const printed_char = entities[char] ? unsafeHTML(entities[char]) : char;
+        return html`<span class="c${char.charCodeAt(0)}">${printed_char}</span>`;
+      });
+      return html`<span class="word">${wrappedLetters}</span>${i === wordCount - 1 ? '' : spaceCharacter}`;
     });
   }
 

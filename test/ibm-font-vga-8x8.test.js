@@ -20,7 +20,7 @@ describe('<romfont-ibm-vga-8x8>', () => {
   it('renders the text property as spans with character code classes', async () => {
     const text = 'Aa';
     const el = await fixture(component(text));
-    const spans = el.shadowRoot.querySelectorAll('span');
+    const spans = el.shadowRoot.querySelectorAll('span[class^=c]');
 
     expect(spans.length).to.equal(2);
     text.split('').forEach((char, i) => {
@@ -28,10 +28,20 @@ describe('<romfont-ibm-vga-8x8>', () => {
     });
   });
 
+  it('renders words within parent spans separated with spaces', async () => {
+    const text = 'Some words';
+    const el = await fixture(component(text));
+    const wordSpans = el.shadowRoot.querySelectorAll('.word');
+    const spaceSpans = el.shadowRoot.querySelectorAll('.c32');
+
+    expect(wordSpans.length).to.equal(2);
+    expect(spaceSpans.length).to.equal(1);
+  });
+
   it('renders HTML entities when their corresponding characters exist in the text property', async () => {
     const text = ' ';
     const el = await fixture(component(text));
 
-    expect(el.shadowRoot.querySelector('span').innerHTML).to.match(/&nbsp;/);
+    expect(el.shadowRoot.querySelector('span[class^=c]').innerHTML).to.match(/&nbsp;/);
   });
 });

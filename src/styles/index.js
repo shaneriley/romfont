@@ -26,6 +26,10 @@ export default (name) => {
 
     span {
       display: inline-block;
+    }
+
+    span[class^=c] {
+      display: inline-block;
       width: ${unsafeCSS(params.width)}px;
       height: ${unsafeCSS(params.height)}px;
       font-size: 6px;

@@ -8,11 +8,6 @@ Each component renders the text transparently for aaccessibility and to allow
 text selection. A default slot is included to render any alternate content for
 user agents with JavaScript disabled.
 
-Note that there is currently no mechanism to word-wrap elements. If your text
-exceeds the width of its container, it will push following characters to a new
-line. I may add word wrap functionality in the future, but in the meantime
-please don't submit an issue for it.
-
 ## Usage
 
 Import one of the font family components and render the component with a `text`

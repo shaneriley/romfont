@@ -1,6 +1,6 @@
 {
   "name": "romfont",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "ROM font WebComponents",
   "keywords": [
     "lit-element",
@@ -8,6 +8,10 @@
     "raster",
     "font"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shaneriley/romfont"
+  },
   "main": "index.js",
   "module": "index.js",
   "author": "Shane Riley",
